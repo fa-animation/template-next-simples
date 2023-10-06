@@ -1,36 +1,35 @@
-/* eslint-disable react/jsx-props-no-spreading */
-import Document, { Html, Head, Main, NextScript } from 'next/document';
-import { ColorModeScript } from '@chakra-ui/react';
-import type { DocumentContext } from 'next/document';
+import type { DocumentContext } from 'next/document'
+import Document, { Html, Head, Main, NextScript } from 'next/document'
+import { ColorModeScript } from '@chakra-ui/react'
 
-import customTheme from '@/styles/';
-import Meta from '@/components/Meta';
+import customTheme from '@/styles/'
+import Meta from '@/components/Meta'
 
 class MyDocument extends Document {
   static getInitialProps(ctx: DocumentContext) {
-    return Document.getInitialProps(ctx);
+    return Document.getInitialProps(ctx)
   }
 
   render() {
     return (
-      <Html lang="en">
+      <Html lang="pt-BR">
         <Head>
+          <Meta />
           <link
             href="https://fonts.googleapis.com/css2?family=Figtree:wght@300..900&display=swap"
             rel="stylesheet"
           />
-          <Meta />
+          <link rel="shortcut icon" href="/favicon.ico" />
+          <link rel="manifest" href="/manifest.json" />
         </Head>
         <body>
-          <ColorModeScript
-            initialColorMode={customTheme.config?.initialColorMode}
-          />
+          <ColorModeScript initialColorMode={customTheme.config?.initialColorMode} />
           <Main />
           <NextScript />
         </body>
       </Html>
-    );
+    )
   }
 }
 
-export default MyDocument;
+export default MyDocument
